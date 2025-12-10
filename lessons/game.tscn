@@ -15,7 +15,6 @@ position = Vector2(1115, 1048)
 texture = ExtResource("1_gkp25")
 
 [node name="Runner" parent="." instance=ExtResource("2_4o7yg")]
-y_sort_enabled = true
 position = Vector2(1115, 1048)
 motion_mode = 0
 
