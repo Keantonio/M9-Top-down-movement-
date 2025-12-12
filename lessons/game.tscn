@@ -6,11 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://bvlvxjmbalaj0" path="res://lessons/Circuit.tscn" id="3_4o7yg"]
 
 [node name="Game" type="Node2D"]
-z_as_relative = false
-y_sort_enabled = true
+z_index = -1
 position = Vector2(288, 138)
 
 [node name="CircuitBackground" type="Sprite2D" parent="."]
+z_index = -1
 position = Vector2(1115, 1048)
 texture = ExtResource("1_gkp25")
 
@@ -19,6 +19,7 @@ position = Vector2(1115, 1048)
 motion_mode = 0
 
 [node name="StaticBody2D" parent="." instance=ExtResource("1_yasw7")]
+z_index = -1
 position = Vector2(1787, 346)
 
 [node name="StaticBody2D2" parent="." instance=ExtResource("1_yasw7")]
@@ -31,4 +32,5 @@ position = Vector2(1616, 1032)
 position = Vector2(706, 890)
 
 [node name="Circuit" parent="." instance=ExtResource("3_4o7yg")]
-position = Vector2(1117, 1076)
+z_index = -1
+position = Vector2(1054, 1129)
