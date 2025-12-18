@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://c62bk8cggi6yq"]
+[gd_scene load_steps=9 format=3 uid="uid://c62bk8cggi6yq"]
 
 [ext_resource type="Script" uid="uid://5nrf8ebgtofs" path="res://lessons/game.gd" id="1_48faf"]
 [ext_resource type="Texture2D" uid="uid://5vl7p0xb7nd8" path="res://assets/circuit_background.png" id="1_gkp25"]
 [ext_resource type="PackedScene" uid="uid://p75euy1gcr34" path="res://lessons/runner.tscn" id="2_4o7yg"]
 [ext_resource type="PackedScene" uid="uid://bvlvxjmbalaj0" path="res://lessons/Circuit.tscn" id="3_4o7yg"]
 [ext_resource type="PackedScene" uid="uid://xl56q8amb611" path="res://assets/finish_line/finish_line.tscn" id="4_sepuf"]
+[ext_resource type="Theme" uid="uid://cdcyvsn1fp8wa" path="res://assets/countdown/count_down_theme.tres" id="6_cpqg5"]
+[ext_resource type="Script" uid="uid://do22m8w8vcdy7" path="res://count_down.gd" id="7_cpqg5"]
+[ext_resource type="PackedScene" uid="uid://dj6ye05dbiqpi" path="res://lessons/pause_screen.tscn" id="8_viysf"]
 
 [node name="Game" type="Node2D"]
 z_index = -1
@@ -12,18 +15,45 @@ position = Vector2(288, 138)
 script = ExtResource("1_48faf")
 
 [node name="Runner" parent="." instance=ExtResource("2_4o7yg")]
-position = Vector2(-177, 866)
-
-[node name="FinishLine" parent="." instance=ExtResource("4_sepuf")]
 unique_name_in_owner = true
-position = Vector2(-290, 903)
-area_width = 256
+position = Vector2(68, 588)
 
 [node name="CircuitBackground" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(1115, 1048)
 texture = ExtResource("1_gkp25")
 
+[node name="FinishLine" parent="." instance=ExtResource("4_sepuf")]
+unique_name_in_owner = true
+position = Vector2(-290, 903)
+area_width = 256
+
 [node name="Circuit" parent="." instance=ExtResource("3_4o7yg")]
 z_index = -1
 position = Vector2(1054, 1129)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CountDown" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -162.0
+offset_top = -109.5
+offset_right = 162.0
+offset_bottom = 109.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_cpqg5")
+text = "Test"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("7_cpqg5")
+metadata/_custom_type_script = "uid://57e8080cpukf"
+
+[node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("8_viysf")]
+visible = false
