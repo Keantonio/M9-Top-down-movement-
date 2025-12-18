@@ -1,6 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://c62bk8cggi6yq"]
+[gd_scene load_steps=8 format=3 uid="uid://c62bk8cggi6yq"]
 
-[ext_resource type="Script" uid="uid://5nrf8ebgtofs" path="res://lessons/game.gd" id="1_48faf"]
 [ext_resource type="Texture2D" uid="uid://5vl7p0xb7nd8" path="res://assets/circuit_background.png" id="1_gkp25"]
 [ext_resource type="PackedScene" uid="uid://p75euy1gcr34" path="res://lessons/runner.tscn" id="2_4o7yg"]
 [ext_resource type="PackedScene" uid="uid://bvlvxjmbalaj0" path="res://lessons/Circuit.tscn" id="3_4o7yg"]
@@ -10,23 +9,24 @@
 [ext_resource type="PackedScene" uid="uid://dj6ye05dbiqpi" path="res://lessons/pause_screen.tscn" id="8_viysf"]
 
 [node name="Game" type="Node2D"]
+process_mode = 3
 z_index = -1
 position = Vector2(288, 138)
-script = ExtResource("1_48faf")
-
-[node name="Runner" parent="." instance=ExtResource("2_4o7yg")]
-unique_name_in_owner = true
-position = Vector2(68, 588)
 
 [node name="CircuitBackground" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(1115, 1048)
 texture = ExtResource("1_gkp25")
+metadata/_edit_lock_ = true
 
 [node name="FinishLine" parent="." instance=ExtResource("4_sepuf")]
 unique_name_in_owner = true
 position = Vector2(-290, 903)
 area_width = 256
+
+[node name="Runner" parent="." instance=ExtResource("2_4o7yg")]
+unique_name_in_owner = true
+position = Vector2(669, 424)
 
 [node name="Circuit" parent="." instance=ExtResource("3_4o7yg")]
 z_index = -1
@@ -49,11 +49,13 @@ offset_bottom = 109.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("6_cpqg5")
-text = "Test"
+text = "Text"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("7_cpqg5")
 metadata/_custom_type_script = "uid://57e8080cpukf"
 
 [node name="PauseScreen" parent="CanvasLayer" instance=ExtResource("8_viysf")]
-visible = false
+unique_name_in_owner = true
+menu_opened_amount = 1.0
+metadata/_edit_lock_ = true
